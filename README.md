@@ -15,4 +15,4 @@
 ## Setup
 1. Clone repo:
 ```bash
-git clone <>
+git clone <https://github.com/Yashh2002/Job_application_tracker>
