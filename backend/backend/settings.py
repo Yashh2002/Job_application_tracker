@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-!o2g^q=genm=c3_^o55$#s75ut&$qecugbiork(hr6052#_qdb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'job-application-tracker-gjtm.onrender.com',
+]
 
 
 # Application definition
