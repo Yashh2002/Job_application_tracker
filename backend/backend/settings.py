@@ -98,7 +98,7 @@ DATABASES = {
         'USER': os.environ.get('job_tracker_db_3s9s_user'),
         'PASSWORD': os.environ.get('6o1fEhACzHzhAl9gFul32tbWlNmRIwsj'),
         'HOST': os.environ.get('dpg-d504brl6ubrc73a8gbe0-a'),
-        'PORT': os.environ.get('5432'),
+        'PORT': os.environ.get('DB_PORT','5432'),
     }
 }
 
