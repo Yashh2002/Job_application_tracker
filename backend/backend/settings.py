@@ -93,7 +93,7 @@ DATABASES = {
         'NAME': 'job_tracker_db',
         'USER': 'postgres',
         'PASSWORD': 'root',
-        'HOST': 'localhost',
+        'HOST': 'dpg-d504brl6ubrc73a8gbe0-a',
         'PORT': '5432',
     }
 }
