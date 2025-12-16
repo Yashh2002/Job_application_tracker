@@ -91,6 +91,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -98,10 +99,9 @@ DATABASES = {
         'USER': os.environ.get('job_tracker_db_3s9s_user'),
         'PASSWORD': os.environ.get('6o1fEhACzHzhAl9gFul32tbWlNmRIwsj'),
         'HOST': os.environ.get('dpg-d504brl6ubrc73a8gbe0-a'),
-        'PORT': os.environ.get('DB_PORT','5432'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
-
 
 
 # Password validation
