@@ -21,16 +21,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "unsafe-dev-key-only-for-debug")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 
-ALLOWED_HOSTS = os.environ.get(
-    "DJANGO_ALLOWED_HOSTS",
-    ".onrender.com"
-).split(",")
+ALLOWED_HOSTS = [
+    "job-application-tracker-1-deic.onrender.com",
+]
+
 
 CSRF_TRUSTED_ORIGINS = [
     "https://job-application-tracker-1-deic.onrender.com",
@@ -65,6 +65,8 @@ MIDDLEWARE = [
 
     'corsheaders.middleware.CorsMiddleware',
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -137,5 +139,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
