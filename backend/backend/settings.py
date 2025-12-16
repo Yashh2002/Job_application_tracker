@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
-
+import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-!o2g^q=genm=c3_^o55$#s75ut&$qecugbiork(hr6052#_qdb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-import os
+
 
 ALLOWED_HOSTS = os.environ.get(
     "DJANGO_ALLOWED_HOSTS",
@@ -91,16 +92,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('job_tracker_db_3s9s'),
-        'USER': os.environ.get('job_tracker_db_3s9s_user'),
-        'PASSWORD': os.environ.get('6o1fEhACzHzhAl9gFul32tbWlNmRIwsj'),
-        'HOST': os.environ.get('dpg-d504brl6ubrc73a8gbe0-a'),
-        'PORT': os.environ.get('DB_PORT', '5432'),
-    }
+    "default": dj_database_url.config(
+        default=os.environ.get("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True,
+    )
 }
 
 
