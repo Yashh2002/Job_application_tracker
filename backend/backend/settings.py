@@ -25,9 +25,15 @@ SECRET_KEY = 'django-insecure-!o2g^q=genm=c3_^o55$#s75ut&$qecugbiork(hr6052#_qdb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    'job-application-tracker-1-deic.onrender.com',
-    'job-application-tracker-gjtm.onrender.com',
+import os
+
+ALLOWED_HOSTS = os.environ.get(
+    "DJANGO_ALLOWED_HOSTS",
+    ".onrender.com"
+).split(",")
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.onrender.com",
 ]
 
 
