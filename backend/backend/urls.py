@@ -14,15 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
+from django.http import JsonResponse
 from django.urls import path, include
 
 
 def home(request):
-    return JsonResponse({"message": "API is working!"})
-    
+    return JsonResponse({"status": "Job Application Tracker API is running"})
+
+
 urlpatterns = [
-    path('', home),
+    path('', home),  # 👈 THIS FIXES THE 500 ERROR
     path('admin/', admin.site.urls),
     path('api/', include('applications.urls')),
 ]
