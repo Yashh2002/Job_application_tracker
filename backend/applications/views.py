@@ -14,20 +14,6 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from collections import Counter
 
-@api_view(['GET'])
-def job_status_report(request):
-    jobs = JobApplication.objects.all()
-    status_list = [job.status for job in jobs]
-    status_count = dict(Counter(status_list))
-
-    # Ensure all statuses are included even if zero
-    all_statuses = ['Applied', 'Interview', 'Rejected', 'Offer']
-    for s in all_statuses:
-        if s not in status_count:
-            status_count[s] = 0
-
-    return Response(status_count)
-
 class JobApplicationListCreateView(generics.ListCreateAPIView):
     queryset = JobApplication.objects.all()
     serializer_class = JobApplicationSerializer
@@ -57,4 +43,20 @@ class CompanyInfoView(APIView):
             status=status.HTTP_200_OK
         )
 
+@api_view(['GET'])
+def job_status_report(request):
+    jobs = JobApplication.objects.all()
+    status_list = [job.status for job in jobs]
+    status_count = dict(Counter(status_list))
+
+    # Ensure all statuses are included even if zero
+    all_statuses = ['Applied', 'Interview', 'Rejected', 'Offer']
+    for s in all_statuses:
+        if s not in status_count:
+            status_count[s] = 0
+
+    return Response(status_count)
+
+def dashboard(request):
+    return render(request, 'index.html')
 
