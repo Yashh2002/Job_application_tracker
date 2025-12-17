@@ -3,10 +3,12 @@ from .views import (
     JobApplicationListCreateView,
     JobApplicationDetailView,
     CompanyInfoView,
-    job_status_report
+    job_status_report,
+    dashboard
 )
 
 urlpatterns = [
+    path('', dashboard, name='dashboard'),
     path('jobs/', JobApplicationListCreateView.as_view(), name='job-list-create'),
     path('jobs/<int:pk>/', JobApplicationDetailView.as_view(), name='job-detail'),
     path('company-info/', CompanyInfoView.as_view(), name='company-info'),
