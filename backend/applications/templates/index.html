@@ -10,7 +10,7 @@
 
     <script>
         async function fetchData() {
-            const response = await fetch('/api/reports/status-summary/');
+            const response = await fetch('/reports/status-summary/');
             const data = await response.json();
             return data;
         }
