@@ -57,6 +57,4 @@ def job_status_report(request):
 
     return Response(status_count)
 
-def dashboard(request):
-    return render(request, 'index.html')
 
